@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def home(request):
     return HttpResponse("Hello world, django")
+
+def detail(request, my_args):
+    return HttpResponse("You're looking at my_args %s. " % my_args)
