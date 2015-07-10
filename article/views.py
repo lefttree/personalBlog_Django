@@ -35,3 +35,6 @@ def archives(request):
         'error': False
     }
     return render(request, 'archives.html', dic)
+
+def about_me(request):
+    return render(request, "aboutme.html")
