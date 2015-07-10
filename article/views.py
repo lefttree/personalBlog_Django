@@ -7,7 +7,11 @@ from datetime import datetime
 # Create your views here.
 
 def home(request):
-    return HttpResponse("Hello world, django")
+    post_list = Article.objects.all()
+    dic = {
+        'post_list': post_list
+    }
+    return render(request, 'home.html', dic)
 
 def detail(request, my_args):
     post = Article.objects.all()[int(my_args)]
