@@ -23,7 +23,7 @@ def detail(request, id):
     dic = {
         'post': post
     }
-    return render(request, 'post.html', {'post': post})
+    return render(request, 'post.html', dic)
 
 def test(request):
     dic = {
