@@ -25,8 +25,13 @@ def detail(request, id):
     }
     return render(request, 'post.html', dic)
 
-def test(request):
+def archives(request):
+    try:
+        post_list = Article.objects.all()
+    except Article.DoesNotExist:
+        raise Http404
     dic = {
-        'current_time': datetime.now()
+        'post_list': post_list,
+        'error': False
     }
-    return render(request, 'test.html', dic)
+    return render(request, 'archives.html', dic)
