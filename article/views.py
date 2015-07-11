@@ -48,3 +48,25 @@ def search_tag(request, tag):
         'post_list': post_list
     }
     return render(request, 'tag.html', dic)
+
+def blog_search(request):
+    if 's' in request.GET:
+        s = request.GET['s']
+        if not s:
+            return render(request, "home.html")
+        else:
+            post_list = Article.objects.filter(title__icontains = s)
+            if len(post_list) == 0:
+                dic = {
+                    'post_list': post_list,
+                    'error': True
+                }
+                return render(request, 'archives.html', dic)
+            else:
+                dic = {
+                    'post_list': post_list,
+                    'error': False
+                }
+                return render(request,'archives.html', dic)
+
+    return redirect('/')
