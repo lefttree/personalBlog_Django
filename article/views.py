@@ -38,3 +38,13 @@ def archives(request):
 
 def about_me(request):
     return render(request, "aboutme.html")
+
+def search_tag(request, tag):
+    try:
+        post_list = Article.objects.filter(category__iexact = tag)
+    except Article.DoesNotExist:
+        raise Http404
+    dic = {
+        'post_list': post_list
+    }
+    return render(request, 'tag.html', dic)

@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', 'article.views.home'),
     url(r'^(?P<id>\d+)/$', 'article.views.detail', name='detail'),
     url(r'^archives/$', 'article.views.archives', name="archives"),
-    url(r'^aboutme/$', 'article.views.about_me', nmae="about_me"),
+    url(r'^aboutme/$', 'article.views.about_me', name="about_me"),
+    url(r'^tag(?P<tag>\w+)/$', 'article.views.search_tag', name="search_tag"),
 )
 
