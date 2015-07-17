@@ -23,7 +23,7 @@ def detail(request, id):
     dic = {
         'post': post
     }
-    return render(request, 'post.html', dic)
+    return render(request, 'bootstrap_post.html', dic)
 
 def archives(request):
     try:
