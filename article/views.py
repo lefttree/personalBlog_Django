@@ -13,7 +13,7 @@ def home(request):
     dic = {
         'post_list': post_list
     }
-    return render(request, 'home.html', dic)
+    return render(request, 'bootstrap_home.html', dic)
 
 def detail(request, id):
     try:
